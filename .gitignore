@@ -2,4 +2,3 @@
 test-results
 __pycache__
 .idea
-pytest.ini
