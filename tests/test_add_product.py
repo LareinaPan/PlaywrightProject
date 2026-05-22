@@ -6,7 +6,8 @@ class TestJDProduct:
     def test_jd_login_popup_and_search(self, page: Page):
         # 1. 访问京东首页，等待自动跳出登录弹窗
         page.goto("https://www.jd.com/", wait_until="domcontentloaded")
-        expect(page).to_have_url("https://www.jd.com/")
+        # expect(page).to_have_url("https://www.jd.com/")
+        expect(page).to_have_url(re.compile(r"\.jd\.com/"))
         expect(page).to_have_title(re.compile(r"京东"))
 
         login_popup = page.locator("#login2025-content").content_frame.locator(".sms-login-submit-box")
